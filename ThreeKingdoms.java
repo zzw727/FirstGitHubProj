@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 
  * @author ZhangGeezer
- * 	《三国杀猜拳游戏》系统
+ * 	《三国杀猜拳游戏》系统 修改版本
  * 
  */
 public class ThreeKingdoms {
@@ -15,15 +15,16 @@ public class ThreeKingdoms {
 		Scanner inScanner = new Scanner(System.in);
 		String choice = "";//循环变量,赋初始值
 		String opponentName = "";//对手姓名变量
-		String playerChuQuanName = "";//玩家出拳的学名
-		String npcChuQuanName = "";//NPC出拳的学名
+		boolean judgePrint = true;//判断输入是否正常
+		String PlayerchuQuanName = "";//玩家出拳的学名
+		String NpcchuQuanName = "";//NPC出拳的学名
 		int countWin = 0;//记录赢的次数
 		int countLose = 0;//记录输的次数
 		int countDogfall = 0;//记录平局的次数
 		
 		//初始化开始界面
 		System.out.println("------------------------------\n");
-		System.out.println("  三国杀游戏即将开始，祝您游戏愉快\n");
+		System.out.println("  三国杀游戏修改版本即将开始，祝您游戏愉快\n");
 		System.out.println("------------------------------");
 		//提示选择对手
 		System.out.println("1（曹操），2（关羽），3（周瑜）");
@@ -52,11 +53,11 @@ public class ThreeKingdoms {
 			int chuQuanNpc = (int)(Math.random()*3)+1;//生成1，2，3之间的随机整数
 			//判断NPC随机出拳，并给学名赋值
 			if (chuQuanNpc == 1) {
-				npcChuQuanName = "石头";
+				NpcchuQuanName = "石头";
 			}else if(chuQuanNpc == 2) {
-				npcChuQuanName = "剪刀";
+				NpcchuQuanName = "剪刀";
 			}else if(chuQuanNpc == 3){
-				npcChuQuanName = "布";
+				NpcchuQuanName = "布";
 			}
 			//打印游戏界面
 			System.out.println("1（石头），2（剪刀），其他（布）");
@@ -65,39 +66,39 @@ public class ThreeKingdoms {
 			////判断玩家随机出拳，并给学名赋值
 			switch (chuQuanPlayer) {
 			case 1:
-				playerChuQuanName = "石头";
+				PlayerchuQuanName = "石头";
 				break;
 			case 2:
-				playerChuQuanName = "剪刀";
+				PlayerchuQuanName = "剪刀";
 				break;
 			default:
-				playerChuQuanName = "布";
+				PlayerchuQuanName = "布";
 				break;
 			}
 			//打印输出各自出的拳
-			System.out.println("你\t出的是：" + playerChuQuanName);
-			System.out.println(opponentName + "\t出的是：" + npcChuQuanName);
+			System.out.println("你\t出的是：" + PlayerchuQuanName);
+			System.out.println(opponentName + "\t出的是：" + NpcchuQuanName);
 
 			//判断输赢
-			if(playerChuQuanName.equals(npcChuQuanName)) {
+			if(PlayerchuQuanName.equals(NpcchuQuanName)) {
 				System.out.println("---平局！---\n");	
 				countDogfall++;
-			}else if(playerChuQuanName.equals("石头") && npcChuQuanName.equals("剪刀")) {
+			}else if(PlayerchuQuanName.equals("石头") && NpcchuQuanName.equals("剪刀")) {
 				System.out.println("---你赢了！---\n");
 				countWin++;
-			}else if(playerChuQuanName.equals("石头") && npcChuQuanName.equals("布")) {
+			}else if(PlayerchuQuanName.equals("石头") && NpcchuQuanName.equals("布")) {
 				System.out.println("---你输了！---\n");
 				countLose++;
-			}else if(playerChuQuanName.equals("剪刀") && npcChuQuanName.equals("石头")) {
+			}else if(PlayerchuQuanName.equals("剪刀") && NpcchuQuanName.equals("石头")) {
 				System.out.println("---你输了！---\n");
 				countLose++;
-			}else if(playerChuQuanName.equals("剪刀") && npcChuQuanName.equals("布")) {
+			}else if(PlayerchuQuanName.equals("剪刀") && NpcchuQuanName.equals("布")) {
 				System.out.println("---你赢了！---\n");
 				countWin++;
-			}else if(playerChuQuanName.equals("布") && npcChuQuanName.equals("石头")) {
+			}else if(PlayerchuQuanName.equals("布") && NpcchuQuanName.equals("石头")) {
 				System.out.println("---你赢了！---\n");
 				countWin++;
-			}else if(playerChuQuanName.equals("布") && npcChuQuanName.equals("剪刀")) {
+			}else if(PlayerchuQuanName.equals("布") && NpcchuQuanName.equals("剪刀")) {
 				System.out.println("---你输了！---\n");
 				countLose++;
 			}
